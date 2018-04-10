@@ -2,6 +2,13 @@
 
 module.exports = {
 
+  test: {
+    client: 'postgresql',
+    connection: {
+      database: 'knexlibrary_test'
+    }
+  },
+
   development: {
     client: 'postgresql',
     connection: {

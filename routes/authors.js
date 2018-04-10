@@ -1,11 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const knex = require('../db/knex');
 
 router.get('/', (req, res, next) => {
-    const authors = [{ name: 'Stieg Larsson', age: 'dead' }];
-    res.status(200).render('authors', { authors })
-    //   .catch((err) => {
-    //       next(err)});
-  });
+    knex('authors')
+        .select('*')
+        .then((authors) => {
+            res.status(200).render('authors', { authors })
+        })
+        .catch((err) => {
+            next(err)
+        });
+});
 
-  module.exports = router;
+module.exports = router;

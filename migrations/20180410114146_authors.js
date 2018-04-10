@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return createAuthors()
-  .then(createDonuts)
+  .then(createBooks)
 
   function createAuthors(){
     return knex.schema.createTable('authors', function(table){

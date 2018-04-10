@@ -2,15 +2,14 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 8888;
 const bodyParser = require('body-parser');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 
+const authors = require('./routes/authors');
+
+app.use(morgan('common'));
 app.set('view engine', 'ejs');
 
-app.get('/authors', (req, res, next) => {
-  const authors = [{ name: 'Stieg Larsson', age: 'dead' }];
-  res.render('authors', { authors }).status(200)
-    .catch(err => next(err));
-});
+app.use('/authors', authors);
 
 app.use((req, res) => {
   res.status(404).send('Not Found');

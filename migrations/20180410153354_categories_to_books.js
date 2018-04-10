@@ -1,6 +1,8 @@
 
 exports.up = function (knex, Promise) {
-    return function createCategories() {
+    return createCategoriesToBooks();
+
+    function createCategoriesToBooks() {
         return knex.schema.createTable('categories_to_books', function (table) {
             table.increments();
             table.integer('book_id');

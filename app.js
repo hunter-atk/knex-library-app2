@@ -4,8 +4,11 @@ const port = process.env.PORT || 8888;
 const bodyParser = require('body-parser');
 // const morgan = require('morgan');
 
+app.set('view engine', 'ejs');
+
 app.get('/authors', (req, res, next) => {
-  res.send('Authors Route')
+  const authors = [{ name: 'Stieg Larsson', age: 'dead' }];
+  res.render('authors', { authors }).status(200)
     .catch(err => next(err));
 });
 

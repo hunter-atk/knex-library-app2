@@ -13,6 +13,13 @@ router.get('/', (req, res, next) => {
         });
 });
 
+router.get('/create', (req, res, next) => {
+    res.status(200).render('bookscreate')
+        .catch((err) => {
+            next(err);
+        });
+});
+
 router.delete('/:id', (req, res) => {
   knex('books')
     .where('id', req.params.id)

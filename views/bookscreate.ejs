@@ -6,12 +6,11 @@
   </head>
   <body>
     <a href="/authors"><h4>List of authors</h4></a><a href="/books"><h4>List of books</h4></a><br>
-    <h3>This is the edit page</h3>
-    <%= author.name %>
+    <h3>Enter new info:</h3>
 
-    <form class="" action="/authors/<%= author.id %>?_method=put" method="post">
-      <input type="text" name="name" placeholder="name">
-      <input type="integer" name="age" placeholder="age">
+    <form class="" action="/books" method="post">
+      <input type="text" name="title" placeholder="title">
+      <input type="integer" name="author_id" placeholder="author id">
       <input type="submit" value="submit">
     </form>
 

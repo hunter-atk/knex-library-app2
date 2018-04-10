@@ -12,7 +12,7 @@
 
     <ul>
     <% for(author of authors){ %>
-      <h4>NAME: <%=author.name%></h4></a>
+      <a href="/authors/<%=author.id%>"><h4>NAME: <%=author.name%></h4></a>
       <p>AGE: <%=author.age%></p>
       <form action="/authors/<%=author.id%>/edit">
            <input type="submit" value="Edit author info" />

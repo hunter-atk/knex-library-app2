@@ -29,7 +29,7 @@ router.delete('/:id', (req, res) => {
     .where('id', req.params.id)
     .del()
     .then(function (author){
-      res.redirect('/')
+      res.redirect('/authors')
     })
 });
 

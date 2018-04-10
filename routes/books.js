@@ -18,7 +18,7 @@ router.delete('/:id', (req, res) => {
     .where('id', req.params.id)
     .del()
     .then(function (book){
-      res.redirect('/')
+      res.redirect('/books')
     })
 });
 

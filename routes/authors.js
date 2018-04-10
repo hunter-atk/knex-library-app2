@@ -43,6 +43,24 @@ router.post('/', (req, res, next) => {
         .catch(err => next(err));
 });
 
+router.get('/:id/edit', (req, res)=>{
+  knex('authors')
+    .where('id', req.params.id)
+    .first()
+    .then(function (author) {
+      res.render('authorsedit', {author});
+    });
+});
+
+router.put('/:id', (req, res) => {
+  knex('authors')
+    .where('id', req.params.id)
+       .update(req.body)
+       .then(function (author){
+         res.redirect('/authors')
+       })
+});
+
 router.delete('/:id', (req, res) => {
     knex('authors')
         .where('id', req.params.id)

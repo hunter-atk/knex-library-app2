@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/authors"><h4>List of authors</h4></a><a href="/books"><h4>List of books</h4></a><br>
+    <h3>This is the edit page</h3>
+    <%= book.title %>
+
+    <form class="" action="/books/<%= book.id %>?_method=put" method="post">
+      <input type="text" name="title" placeholder="title">
+      <input type="submit" value="submit">
+    </form>
+
+  </body>
+</html>

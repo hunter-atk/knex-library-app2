@@ -15,7 +15,7 @@ app.use(methodOverride('_method'))
 app.set('view engine', 'ejs');
 
 app.use('/authors', authors);
-app.use('/books', books);
+app.use('/authors/:author_id/books', books);
 
 app.use((req, res) => {
   res.status(404).send('Not Found');

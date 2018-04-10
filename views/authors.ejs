@@ -15,7 +15,7 @@
       <h4>NAME: <%=author.name%></h4></a>
       <p>AGE: <%=author.age%></p>
       <form action="/authors/<%=author.id%>/edit">
-           <input type="submit" value="Edit donut info" />
+           <input type="submit" value="Edit author info" />
       </form>
       <form method="POST" action="/authors/<%=author.id%>?_method=DELETE">
            <button type="submit">Remove author</button>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>More author info</h1>
+    <h3><%=author.name%></h3>
+    <h3><%=author.age%></h3>
+
+    <a href="authors">List of books this author has written</a>
+    <br>
+    <ul>
+    <% for(book of books){ %>
+      <h4>TITLE: <%=book.title%></h4>
+    <% } %>
+  </ul>
+
+
+  </body>
+</html>

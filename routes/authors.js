@@ -13,6 +13,13 @@ router.get('/', (req, res, next) => {
         });
 });
 
+router.get('/create', (req, res, next) => {
+    res.status(200).render('authorscreate')
+        .catch((err) => {
+            next(err);
+        });
+});
+
 router.get('/:id', (req, res, next) => {
     knex('books')
         .select('*').where('author_id', req.params.id)
@@ -24,13 +31,25 @@ router.get('/:id', (req, res, next) => {
         });
 });
 
+router.post('/', (req, res, next) => {
+    console.log(req.body);
+
+    knex('authors')
+        .insert(req.body)
+        .returning('*')
+        .then((author) => {
+            res.status(201).redirect('/authors');
+        })
+        .catch(err => next(err));
+});
+
 router.delete('/:id', (req, res) => {
-  knex('authors')
-    .where('id', req.params.id)
-    .del()
-    .then(function (author){
-      res.redirect('/authors')
-    })
+    knex('authors')
+        .where('id', req.params.id)
+        .del()
+        .then(function (author) {
+            res.redirect('/authors')
+        })
 });
 
 module.exports = router;

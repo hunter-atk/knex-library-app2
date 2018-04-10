@@ -4,12 +4,18 @@ const port = process.env.PORT || 8888;
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
+const methodOverride = require('method-override');
 const authors = require('./routes/authors');
+const books = require('./routes/books');
 
 app.use(morgan('common'));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(methodOverride('_method'))
 app.set('view engine', 'ejs');
 
 app.use('/authors', authors);
+app.use('/books', books);
 
 app.use((req, res) => {
   res.status(404).send('Not Found');

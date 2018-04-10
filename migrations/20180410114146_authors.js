@@ -16,6 +16,7 @@ exports.up = function(knex, Promise) {
       table.increments();
       table.string('title');
       table.string('author_id')
+      table.foreign('author_id').references('authors.id').onDelete('CASCADE')
     })
   }
 };
